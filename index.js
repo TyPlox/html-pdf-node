@@ -18,6 +18,8 @@ async function generatePdf(file, options, callback) {
     args: args
   });
   const page = await browser.newPage();
+  
+  await page.setDefaultNavigationTimeout(0);
 
   if(file.content) {
     data = await inlineCss(file.content, {url:"/"});
